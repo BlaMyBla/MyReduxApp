@@ -13,13 +13,22 @@ class CoursesPage extends React.Component {
         this.setState({course: course});
     }
 
+    handleSubmit = event => {
+        event.preventDefault();
+        alert(this.state.course.title);
+    }
+
     render(){
         return (
-            <form>
+            <form onSubmit={this.handleSubmit} >
                 <h2>Courses</h2>
                 <h3>Add Courses</h3>
-                <input type="text" onChange={this.handleChange} value={this.state.course.title} />
-                <input type="submit" />
+                <input 
+                    type="text" 
+                    onChange={this.handleChange} 
+                    value={this.state.course.title} 
+                />
+                <input type="submit" value="Save" />
             </form>            
         );
         
